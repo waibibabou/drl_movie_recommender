@@ -3,57 +3,61 @@ import struct
 
 # repc文件头
 class LASheader:
-    file_signature = ''  # 文件签名4
-    file_id = 0  # 文件编号
-    major = 0  # 文件主版本号
-    minor = 0  # 文件副版本号
-    hardware_system = ''  # 采集硬件系统名称、版本
-    software_system = ''  # 采集软件系统名称、版本
-    railway_name = ''  # 线路名
-    railway_num = ''  # 线路编号108
-    railway_direction = ''  # 行别
-    mile_direction = ''  # 增、减里程
-    start_mileage = 0  # 开始里程
-    train_no = ''  # 检测车号
-    position = ''  # 位端
-    time = 0  # 开始时间（1970年1月1日0点0分距开始时间的毫秒数）
-    header_size = 0  # 文件头长度
-    point_data_size = ''  # 单个点数据字节数
-    point_number = 0  # 点总数量46
-    x_scale_factor = 0  # X尺度因子
-    y_scale_factor = 0  # Y尺度因子
-    z_scale_factor = 0  # Z尺度因子
-    x_offset = 0  # X偏移值
-    y_offset = 0  # Y偏移值
-    z_offset = 0  # Z偏移值
-    max_x = 0  # 里程真实最大X
-    min_x = 0  # 里程真实最小X
-    max_y = 0  # 真实最大Y
-    min_y = 0  # 真实最小Y258
-    max_z = 0  # 真实最大Z354
-    min_z = 0  # 真实最小Z96
-    rev = ''  # 预留
+    def __init__(self):
+        super(LASheader, self).__init__()
+    # file_signature = ''  # 文件签名4
+    # file_id = 0  # 文件编号
+    # major = 0  # 文件主版本号
+    # minor = 0  # 文件副版本号
+    # hardware_system = ''  # 采集硬件系统名称、版本
+    # software_system = ''  # 采集软件系统名称、版本
+    # railway_name = ''  # 线路名
+    # railway_num = ''  # 线路编号108
+    # railway_direction = ''  # 行别
+    # mile_direction = ''  # 增、减里程
+    # start_mileage = 0  # 开始里程
+    # train_no = ''  # 检测车号
+    # position = ''  # 位端
+    # time = 0  # 开始时间（1970年1月1日0点0分距开始时间的毫秒数）
+    # header_size = 0  # 文件头长度
+    # point_data_size = ''  # 单个点数据字节数
+    # point_number = 0  # 点总数量46
+    # x_scale_factor = 0  # X尺度因子
+    # y_scale_factor = 0  # Y尺度因子
+    # z_scale_factor = 0  # Z尺度因子
+    # x_offset = 0  # X偏移值
+    # y_offset = 0  # Y偏移值
+    # z_offset = 0  # Z偏移值
+    # max_x = 0  # 里程真实最大X
+    # min_x = 0  # 里程真实最小X
+    # max_y = 0  # 真实最大Y
+    # min_y = 0  # 真实最小Y258
+    # max_z = 0  # 真实最大Z354
+    # min_z = 0  # 真实最小Z96
+    # rev = ''  # 预留
 
 
 # 点数据
 class LASPoint:
-    point_source_id = 0  # 点源ID(点序号)
-    x = 0  # X坐标
-    y = 0  # Y坐标
-    z = 0  # Z坐标
-    intensity = 0  # 反射强度
-    return_number = 0  # 反射号(回波)
-    classification = ''  # 分类(不同设施分层管理)
-    key_point = ''  # 是否关键点
-    user_data = ''  # 用户可关联自定义数据
-    color_id = ''  # 颜色ID(根据ID区分颜色)
-    shape_id = ''  # 形状ID(根据ID区分形状)
-    time = 0  # 距头文件Time的毫秒数
-    curvature_radius = 0  # 曲率
-    super = 0  # 超高
-    longitude = 0  # 经度(预留)
-    latitude = 0  # 纬度(预留)
-    height = 0  # 高程(预留)
+    def __init__(self):
+        super(LASPoint, self).__init__()
+    # point_source_id = 0  # 点源ID(点序号)
+    # x = 0  # X坐标
+    # y = 0  # Y坐标
+    # z = 0  # Z坐标
+    # intensity = 0  # 反射强度
+    # return_number = 0  # 反射号(回波)
+    # classification = ''  # 分类(不同设施分层管理)
+    # key_point = ''  # 是否关键点
+    # user_data = ''  # 用户可关联自定义数据
+    # color_id = ''  # 颜色ID(根据ID区分颜色)
+    # shape_id = ''  # 形状ID(根据ID区分形状)
+    # time = 0  # 距头文件Time的毫秒数
+    # curvature_radius = 0  # 曲率
+    # super = 0  # 超高
+    # longitude = 0  # 经度(预留)
+    # latitude = 0  # 纬度(预留)
+    # height = 0  # 高程(预留)
 
 
 # repc文件路径
