@@ -29,6 +29,7 @@ def create_model():
 
 
 model = create_model()  # 创建一个模型
+model.summary()
 loss_fn = keras.losses.MeanSquaredError()  # 定义损失函数
 optimizer = keras.optimizers.SGD()  # 定义优化器
 

@@ -233,8 +233,9 @@ model = create_model()
 loss_fn = keras.losses.MeanSquaredError()
 optimizer = keras.optimizers.Adam(learning_rate)
 
+model.summary()
 
-@tf.function  # 将训练过程转化为图执行模式
+# @tf.function  # 将训练过程转化为图执行模式 运行速度更快
 def train(x, y):
     with tf.GradientTape() as tape:
         logits = model([x[0], x[1], x[2], x[3], x[4], x[5], x[6]], training=True)
@@ -255,6 +256,9 @@ losses = {'train': [], 'test': []}
 
 # 在整个数据集中训练5轮
 for epoch_i in range(num_epochs):
+
+    print(f'epoch_i:{epoch_i}')
+
     train_X, test_X, train_y, test_y = train_test_split(features, targets_values, test_size=0.2, random_state=0)
 
     # train
@@ -270,7 +274,8 @@ for epoch_i in range(num_epochs):
         titles = np.zeros([batch_size, sentences_size])
         for i in range(batch_size):
             titles[i] = x.take(5, 1)[i]
-
+        temp=x.take(0,1)
+        print(temp)
         loss = train([np.reshape(x.take(0, 1), [batch_size, 1]).astype(np.float32),
                       np.reshape(x.take(2, 1), [batch_size, 1]).astype(np.float32),
                       np.reshape(x.take(3, 1), [batch_size, 1]).astype(np.float32),
@@ -279,7 +284,7 @@ for epoch_i in range(num_epochs):
                       titles.astype(np.float32)], np.reshape(y, [batch_size, 1]).astype(np.float32))
 
         losses['train'].append(loss)
-        print(f'epoch_i:{epoch_i} batch_i:{batch_i} loss:{loss}')
+        print(f'epoch_i:{epoch_i} batch_i:{batch_i} train_loss:{loss}')
 
     # test
     test_batches = get_batches(test_X, test_y, batch_size)
@@ -304,8 +309,8 @@ for epoch_i in range(num_epochs):
                         titles.astype(np.float32)], training=False)
         test_loss = loss_fn(np.reshape(y, [batch_size, 1]).astype(np.float32), logits)
         losses['test'].append(test_loss)
+        print(f'epoch_i:{epoch_i} batch_i:{batch_i} test_loss:{test_loss}')
 
-    print(f'epoch_i:{epoch_i}')
 
 
 plt.plot(losses['train'], label='Training loss')
