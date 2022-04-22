@@ -3,7 +3,7 @@ import random
 import tensorflow as tf
 import numpy as np
 from matplotlib import pyplot as plt
-from typing import Optional
+from typing import *
 
 # a = tf.constant([1, 2, 3], dtype=tf.float32)
 # print(a, type(a), a[0])
@@ -117,23 +117,24 @@ from typing import Optional
 # my.recoverFromPreorder("1-401--349---90--88")
 
 
-class x:
-    def __init__(self):
-        self.x=10
-
-    def a(self,x):
-        print(x,self.x)
-
-my=x()
-my.a(11)
-a=[1,2,3]
-b=[1,2,3]
-print(a==b)
-for i in reversed(a):
-    print(i)
-print(a)
-a=[[1,2],[0,1]]
-a.sort(key=lambda x:x[0])
-print(ord('a'))
-
-
+# class x:
+#     def __init__(self):
+#         self.x=10
+#
+#     def a(self,x):
+#         print(x,self.x)
+#
+# my=x()
+# my.a(11)
+#
+# dicc=dict()
+# dicc[1]='1'
+# dicc[2]='2'
+# print(dicc.keys())
+# def xx():
+#     global a
+#     a+=1
+#
+# a=10
+# xx()
+# print(a)

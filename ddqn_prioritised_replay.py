@@ -33,7 +33,7 @@ class SumTree(object):
     data_pointer = 0
 
     def __init__(self, capacity):
-        self.capacity = capacity  # for all priority values
+        self.capacity = capacity  # for all priority values 叶子节点数量
         self.tree = np.zeros(2 * capacity - 1)
         # [--------------Parent nodes-------------][-------leaves to recode priority-------]
         #             size: capacity - 1                       size: capacity
